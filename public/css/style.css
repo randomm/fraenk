@@ -1,0 +1,20 @@
+body {
+  height: 100%;
+  background: #aaa;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+body .fill {
+  min-height: 100%;
+  margin: 1% 1% 1% 1%;
+}
+body .mainmenu {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+body .cell {
+  border: 2px solid #808080;
+}
+a {
+  color: #00b7ff;
+}
