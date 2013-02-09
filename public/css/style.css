@@ -13,7 +13,7 @@ body .mainmenu {
   left: 0px;
 }
 body .cell {
-  border: 2px solid #808080;
+  height: 50%;
 }
 a {
   color: #00b7ff;

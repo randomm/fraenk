@@ -16,6 +16,7 @@
       <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
         <li><a tabindex="-1" href="#" id="menu-instructions">Instructions</a></li>
         <li><a tabindex="-1" href="#" id="menu-your-name">Your name?</a></li>
+        <li><a tabindex="-1" href="#" id="menu-connection-test">Connection test</a></li>
         <li class="divider"></li>
         <li><a tabindex="-1" href="#" id="menu-about">About</a></li>
       </ul>
@@ -25,16 +26,12 @@
     <!-- main container -->
     <div class="container-fluid fill">
       <div class="row-fluid">
-        <div class="span6 hero-unit cell">
-        </div>
-        <div class="span6 hero-unit cell">
-        </div>
+        <button class="span6 btn-success cell" style="height:50%"></button>
+        <button class="span6 btn-warning cell"></button>
       </div>
       <div class="row-fluid">
-        <div class="span6 hero-unit cell">
-        </div>
-        <div class="span6 hero-unit cell">
-        </div>
+        <button class="span6 btn-warning cell"></button>
+        <button class="span6 btn-success cell"></button>
       </div>
     </div>
     <!-- end of main container -->
@@ -43,6 +40,7 @@
     <script src="/js/jquery-1.9.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootbox-3.0.0.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/js/scripts.js"></script>
   </body>
 </html>
