@@ -1,0 +1,5 @@
+fränk is an experimental multiplayer game utilisizing socket.io. It is intended to be deployed locally on a wifi providing server and then played over local wifi connection using mobile devices. However, it is also installable to heroku via usual procedure.
+
+This game is MIT licensed, for license please see LICENSE file
+
+Jani Turunen, 2013
