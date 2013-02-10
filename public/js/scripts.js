@@ -1,5 +1,10 @@
 // setting up menu
 $(document).ready(function() {
+  // reset tile height HACK
+  $(window).resize(function() { reset_tile_height() });
+  reset_tile_height();
+  // end of reset tile height
+
   // name prompt menu item
   $('#menu-your-name').on("click", function() {
     bootbox.prompt("<h4>What is your name?</h4><small>Your name is only used for the fränk high score table.</small>", function(result) {
@@ -37,3 +42,22 @@ socket.on('pong', function (data) {
   bootbox.alert("<h4>Ping time: "+lag+"ms</h4>");
 })
 // end of setting up socket
+
+// function for resetting tile height
+function reset_tile_height() {
+  $('.cell').height($(window).height()*0.20);
+}
+// end of function for resetting tile height
+
+// fade action
+function fade() {
+  panes = $(".cell");
+  var d = 0;
+  panes.each(function(i,pane) {
+    setTimeout(function() {
+      $(pane).fadeToggle(1000,'swing');
+    }, d);
+    d += 50;
+  });
+}
+// end of fade action

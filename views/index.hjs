@@ -26,12 +26,28 @@
     <!-- main container -->
     <div class="container-fluid fill">
       <div class="row-fluid">
-        <button class="span6 btn-success cell" style="height:50%"></button>
-        <button class="span6 btn-warning cell"></button>
+        <button class="span3 btn-success cell"></button>
+        <button class="span3 btn-warning cell"></button>
+        <button class="span3 btn-success cell"></button>
+        <button class="span3 btn-warning cell"></button>
       </div>
       <div class="row-fluid">
-        <button class="span6 btn-warning cell"></button>
-        <button class="span6 btn-success cell"></button>
+        <button class="span3 btn-success cell"></button>
+        <button class="span3 btn-warning cell"></button>
+        <button class="span3 btn-success cell"></button>
+        <button class="span3 btn-warning cell"></button>
+      </div>
+      <div class="row-fluid">
+        <button class="span3 btn-success cell"></button>
+        <button class="span3 btn-warning cell"></button>
+        <button class="span3 btn-success cell"></button>
+        <button class="span3 btn-warning cell"></button>
+      </div>
+      <div class="row-fluid">
+        <button class="span3 btn-success cell"></button>
+        <button class="span3 btn-warning cell"></button>
+        <button class="span3 btn-success cell"></button>
+        <button class="span3 btn-warning cell"></button>
       </div>
     </div>
     <!-- end of main container -->

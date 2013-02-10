@@ -13,7 +13,7 @@ body .mainmenu {
   left: 0px;
 }
 body .cell {
-  height: 50%;
+  margin-bottom: 1%;
 }
 a {
   color: #00b7ff;
