@@ -45,13 +45,14 @@ socket.on('pong', function (data) {
 
 // function for resetting tile height
 function reset_tile_height() {
-  $('.cell').height($(window).height()*0.20);
+  $('.tile').height($(window).height()*0.20);
+  $('.tile').width($(window).width()*0.20);
 }
 // end of function for resetting tile height
 
 // fade action
 function fade() {
-  panes = $(".cell");
+  panes = $(".tile");
   var d = 0;
   panes.each(function(i,pane) {
     setTimeout(function() {
