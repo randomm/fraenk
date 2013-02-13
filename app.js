@@ -7,6 +7,7 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
+  , randomstring = require('randomstring')
   , path = require('path');
 
 var app = express();
@@ -40,10 +41,46 @@ server = http.createServer(app).listen(app.get('port'), function(){
 // starting socket.io
 var io = require('socket.io').listen(server)
 io.sockets.on('connection', function (socket) {
-  socket.on('ping', function (data) {
+
+  // check if this is the sole connection
+  // if it is then we have to create fraenks and 
+  // start the play
+  if (io.sockets.clients().length == 1) {
+    fraenks = get_fraenks(10);
+  }
+  // then send fraenks to client
+  socket.emit('fraenks', fraenks);
+
+  // handlers
+  socket.on('ping', function (data) { // respond to ping
     socket.emit('pong', data);
   });
-  socket.on('my other event', function (data) {
-    console.log(data);
+
+  
+  socket.on('kill', function(data) {
+    var killed;
+    for (var i=0; i<fraenks.length; i++) {
+      if (fraenks[i]['id'] == data) {
+        killed = fraenks.splice(i, 1);
+        break;
+      }
+    }
+    socket.broadcast.emit('kill', killed);
+    if (fraenks.length == 0) {
+      fraenks = get_fraenks(10);
+      socket.emit('fraenks', fraenks);
+      socket.broadcast.emit('fraenks', fraenks);
+    }
   });
+  
 });
+
+function get_fraenks(len) {
+  var f = [];
+  for (var i=0; i<len; i++) {
+    f.push({'id' : randomstring.generate()});
+    // add other properties here
+  }
+  return f;
+}
+

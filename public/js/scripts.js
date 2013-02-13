@@ -1,17 +1,16 @@
+// master array for fraenks
+var fraenks = [];
+
 // setting up menu
 $(document).ready(function() {
-  // reset tile height HACK
-  $(window).resize(function() { reset_tile_height() });
-  reset_tile_height();
-  // end of reset tile height
 
   // name prompt menu item
   $('#menu-your-name').on("click", function() {
     bootbox.prompt("<h4>What is your name?</h4><small>Your name is only used for the fränk high score table.</small>", function(result) {
       if (result === null) {
-//          Example.show("Prompt dismissed");
+//          no name given
       } else {
-//          Example.show("Hi <b>"+result+"</b>");
+//          send name to server
       }
     })
   });
@@ -32,33 +31,56 @@ $(document).ready(function() {
   $('#menu-instructions').on("click", function() {
     bootbox.alert("<h4>How to play fränk</h4><small>Green is good, red is bad. Fastest player to släp a slab gets it. Single game lasts for 20 rounds. You can enter your name for high score purposes at any time via the menu.</small>");
   });
+  
 });
-// end of setting up menu
 
 // setting up socket
 var socket = io.connect(window.location.hostname);
+
+// when socket receives ping respond with pong
 socket.on('pong', function (data) {
   var lag = Date.now() - parseInt(data);
   bootbox.alert("<h4>Ping time: "+lag+"ms</h4>");
 })
-// end of setting up socket
 
-// function for resetting tile height
-function reset_tile_height() {
-  $('.tile').height($(window).height()*0.20);
-  $('.tile').width($(window).width()*0.20);
-}
-// end of function for resetting tile height
-
-// fade action
-function fade() {
-  panes = $(".tile");
-  var d = 0;
-  panes.each(function(i,pane) {
-    setTimeout(function() {
-      $(pane).fadeToggle(1000,'swing');
-    }, d);
-    d += 50;
+// when socket receives ping respond with pong
+socket.on('fraenks', function (data) {
+  // delete all existing fraenks
+  $('.fraenk').remove();
+  fraenks = []
+  
+  // create new ones
+  jQuery.each(data, function(frank) {
+    var f = new fraenk();
+    f.create(data[frank].id);
+    f.animate(19,11);
+    f.wander();
+    fraenks.push(f);
   });
+})
+
+socket.on('kill', function(data) {
+  $('#'+data[0].id).remove();
+});
+
+
+function fraenk() {
+  this.id = null;
+  this.create = function(id) {
+    this.id = id;
+    this.ele = $('<div class="fraenk" id="'+id+'" />').appendTo('body');
+    this.ele.on('click', function() {
+      $(this).remove();
+      socket.emit('kill',$(this).attr('id'));
+    });
+  },
+  this.animate = function(max, min) {
+    var f = Math.floor(Math.random() * (max - min + 1)) + min;
+    this.ele.sprite({fps: f, no_of_frames: 4})
+  },
+  this.wander = function() {
+    this.ele.spRandom({top: 0, bottom: $(document).height(), left: 0, right: $(document).width()})    
+  }
 }
-// end of fade action
+
+socket.emit('ready'); // telling server we're ready

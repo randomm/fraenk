@@ -24,8 +24,6 @@
     </div>    
     <!-- end of menu -->
 
-    <div id="fraenk"></div>
-
     <script src="/js/jquery-1.9.1.min.js"></script>
     <script src="/js/jquery.spritely-0.6.js"></script>
     <script src="/js/bootstrap.min.js"></script>
