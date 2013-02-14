@@ -50,7 +50,7 @@ socket.on('fraenks', function (data) {
   $('.fraenk').remove();
   fraenks = []
   
-  // create new ones
+  // spawn new ones
   jQuery.each(data, function(frank) {
     var f = new fraenk();
     f.create(data[frank].id);
@@ -60,10 +60,35 @@ socket.on('fraenks', function (data) {
   });
 })
 
+// kill individual fraenks when some other player has nuked them
 socket.on('kill', function(data) {
   $('#'+data[0].id).remove();
 });
 
+// loop for adding slaps
+var slaps = 0
+  , max_slaps = 5;
+var slap_loop = setInterval(function() {
+  if (slaps < max_slaps) {
+    var html = "";
+    for (var i=0; i<max_slaps; i++) {
+      html += '<div class="slap"><img src="/img/hand.png" border="0" /></div>';
+    }
+    slaps = max_slaps
+    $('#slaps-container').empty();
+    $('#slaps-container').html(html);
+  }
+},5000);
+
+// removing slaps for misses
+$('#stage').on('click', function() {
+  remove_slap();
+});
+
+function remove_slap() {
+  slaps -= 1;
+  $('#slaps-container div:last-child').remove();
+}
 
 function fraenk() {
   this.id = null;
@@ -71,6 +96,10 @@ function fraenk() {
     this.id = id;
     this.ele = $('<div class="fraenk" id="'+id+'" />').appendTo('body');
     this.ele.on('click', function() {
+      if (slaps < 1) return;
+      $(this).destroy();
+      remove_slap();
+//      $(this).transition({ rotate: '360deg' })
       $(this).remove();
       socket.emit('kill',$(this).attr('id'));
     });
@@ -80,8 +109,6 @@ function fraenk() {
     this.ele.sprite({fps: f, no_of_frames: 4})
   },
   this.wander = function() {
-    this.ele.spRandom({top: 0, bottom: $(document).height(), left: 0, right: $(document).width()})    
+    this.ele.spRandom({top: -100, bottom: $(document).height()+50, left: -100, right: $(document).width()+50})
   }
 }
-
-socket.emit('ready'); // telling server we're ready

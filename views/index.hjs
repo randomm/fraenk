@@ -9,7 +9,7 @@
   </head>
   <body>
     <!-- menu -->
-    <div class="btn-group mainmenu" id="menu">
+    <div class="btn-group" id="menu">
       <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
         Släp
         <span class="caret"></span>
@@ -23,9 +23,19 @@
       </ul>
     </div>    
     <!-- end of menu -->
+    
+    <!-- stage -->
+    <div id="stage"></div>
+    <!-- end of stage -->
+    
+    <!-- slaps -->
+    <div id="slaps-container"></div>
+    <!-- end of slaps -->
 
     <script src="/js/jquery-1.9.1.min.js"></script>
+    <script src="/js/jquery.transit.min.js"></script>
     <script src="/js/jquery.spritely-0.6.js"></script>
+    <script src="/js/jquery.nodoubletapzoom.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootbox-3.0.0.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
