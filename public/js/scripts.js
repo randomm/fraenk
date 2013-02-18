@@ -4,6 +4,9 @@ var fraenks = [];
 // disable double tap zoom via plugin
 $('#stage,.fraenk,#slaps-container,#menu').nodoubletapzoom();
 
+// disable selection of content on IE
+if (typeof document.onselectstart != "undefined") document.onselectstart = function() { return false }
+
 // setting up menu
 $(document).ready(function() {
 
@@ -82,7 +85,7 @@ var slap_loop = setInterval(function() {
     $('#slaps-container').empty();
     $('#slaps-container').html(html);
   }
-},5000);
+},7000);
 
 // removing slaps for misses
 $('#stage').on('click', function() {
