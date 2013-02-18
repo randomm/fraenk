@@ -7,6 +7,9 @@ $('#stage,.fraenk,#slaps-container,#menu').nodoubletapzoom();
 // disable selection of content on IE
 if (typeof document.onselectstart != "undefined") document.onselectstart = function() { return false }
 
+// small screen or?
+var small = $(window).height()*$(window).width() > 200000 ? false : true;
+
 // setting up menu
 $(document).ready(function() {
 
@@ -69,7 +72,8 @@ socket.on('fraenks', function (data) {
     f.wander();
     fraenks.push(f);
   });
-  $('.fraenk').nodoubletapzoom();
+  var fraenk_class =  small ? 'fraenk-small' : 'fraenk';
+  $('.'+fraenk_class).nodoubletapzoom();
 })
 
 // kill individual fraenks when some other player has nuked them
@@ -106,7 +110,7 @@ function fraenk() {
   this.id = null;
   this.create = function(id) {
     this.id = id;
-    var fraenk_class = $(window).height()*$(window).width() > 200000 ? 'fraenk' : 'fraenk-small';
+    var fraenk_class =  small ? 'fraenk-small' : 'fraenk';
     this.ele = $('<div class="'+fraenk_class+'" id="'+id+'" />').appendTo('body');
     this.ele.on('click', function() {
       if (slaps < 1) return;
