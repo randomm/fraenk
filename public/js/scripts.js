@@ -60,8 +60,11 @@ socket.on('pong', function (data) {
 
 // when socket receives ping respond with pong
 socket.on('fraenks', function (data) {
+  // get used class
+  var fraenk_class =  small ? 'fraenk-small' : 'fraenk';
+
   // delete all existing fraenks
-  $('.fraenk').remove();
+  $('.'+fraenk_class).remove();
   fraenks = []
   
   // spawn new ones
@@ -72,7 +75,6 @@ socket.on('fraenks', function (data) {
     f.wander();
     fraenks.push(f);
   });
-  var fraenk_class =  small ? 'fraenk-small' : 'fraenk';
   $('.'+fraenk_class).nodoubletapzoom();
 })
 
