@@ -61,6 +61,7 @@ socket.on('fraenks', function (data) {
     f.wander();
     fraenks.push(f);
   });
+  $('.fraenk').nodoubletapzoom();
 })
 
 // kill individual fraenks when some other player has nuked them
