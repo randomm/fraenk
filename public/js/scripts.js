@@ -2,7 +2,7 @@
 var fraenks = [];
 
 // disable double tap zoom via plugin
-$('#stage').nodoubletapzoom();
+$('#stage,.fraenk,#slaps-container,#menu').nodoubletapzoom();
 
 // setting up menu
 $(document).ready(function() {
