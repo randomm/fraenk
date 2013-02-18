@@ -21,7 +21,7 @@ $(document).ready(function() {
 
   // about menu item
   $('#menu-about').on("click", function() {
-    bootbox.alert("<h4>About fränk</h4><small>fränk is an experimental multiplayer game that can be deployed locally, for example using Raspberry Pi as a gaming hub, but also in the internet. This game was created by Jani Turunen, 2013.</small>");
+    bootbox.alert("<h4>About fränk</h4><small>fränk is an experimental multiplayer game that can be deployed locally, for example using Raspberry Pi as a gaming hub, but also in the internet. This game was created by Jani Turunen & Kare Nieminen, Helsinki, 2013.</small>");
   });
 
   // connection test menu item
