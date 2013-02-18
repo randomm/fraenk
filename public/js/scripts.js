@@ -106,7 +106,8 @@ function fraenk() {
   this.id = null;
   this.create = function(id) {
     this.id = id;
-    this.ele = $('<div class="fraenk" id="'+id+'" />').appendTo('body');
+    var fraenk_class = $(window).height()*$(window).width() > 200000 ? 'fraenk' : 'fraenk-small';
+    this.ele = $('<div class="'+fraenk_class+'" id="'+id+'" />').appendTo('body');
     this.ele.on('click', function() {
       if (slaps < 1) return;
       $(this).destroy();
