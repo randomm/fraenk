@@ -27,6 +27,11 @@ $(document).ready(function() {
     bootbox.alert("<h4>About fränk</h4><small>fränk is an experimental multiplayer game that can be deployed locally, for example using Raspberry Pi as a gaming hub, but also in the internet. This game was created by Jani Turunen & Kare Nieminen, Helsinki, 2013.</small>");
   });
 
+  // screen real estate
+  $('#menu-screen-area').on("click", function() {
+    bootbox.alert("<h4>Screen area</h4><small>Your game area size is <b>"+$(window).height()*$(window).width()+"</b> pixels</small>");
+  });
+
   // connection test menu item
   $('#menu-connection-test').on("click", function() {
     bootbox.alert("<h4>Hit OK to ping server ...</h4>", function() {
@@ -116,6 +121,6 @@ function fraenk() {
     this.ele.sprite({fps: f, no_of_frames: 4})
   },
   this.wander = function() {
-    this.ele.spRandom({top: -100, bottom: $(document).height()+50, left: -100, right: $(document).width()+50})
+    this.ele.spRandom({top: -100, bottom: $(window).height()+50, left: -100, right: $(window).width()+50})
   }
 }

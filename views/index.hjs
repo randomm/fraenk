@@ -3,6 +3,7 @@
   <head>
     <title>{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel='stylesheet' href='/css/bootstrap.min.css' />
     <link rel='stylesheet' href='/css/bootstrap-responsive.min.css'>
     <link rel='stylesheet' href='/css/style.css' />
@@ -20,6 +21,7 @@
         <li><a tabindex="-1" href="#" id="menu-connection-test">Connection test</a></li>
         <li class="divider"></li>
         <li><a tabindex="-1" href="#" id="menu-about">About</a></li>
+        <li><a tabindex="-1" href="#" id="menu-screen-area">debug: your playing area?</a></li>
       </ul>
     </div>    
     <!-- end of menu -->

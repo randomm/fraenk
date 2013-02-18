@@ -3,6 +3,10 @@ body {
   background: #aaa;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   overflow: hidden;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 body #stage {
   position: fixed;
@@ -22,7 +26,7 @@ body #slaps-container {
   position: fixed;
   bottom: 15px;
   left: 15px;
-  width: 40%;
+  width: 80%;
   z-index: 2;
 }
 body #slaps-container .slap {
@@ -36,6 +40,16 @@ body .fraenk {
   left: 65px;
   width: 64px;
   height: 51px;
+  z-index: 999;
+  cursor: pointer;
+}
+body .fraenk-small {
+  background: transparent url("/img/sprites/frank_right_small.png") 0 0 no-repeat;
+  position: absolute;
+  top: 150px;
+  left: 65px;
+  width: 32px;
+  height: 26px;
   z-index: 999;
   cursor: pointer;
 }
