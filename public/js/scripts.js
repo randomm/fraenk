@@ -1,6 +1,9 @@
 // master array for fraenks
 var fraenks = [];
 
+// disable double tap zoom via plugin
+$('#stage').nodoubletapzoom();
+
 // setting up menu
 $(document).ready(function() {
 
