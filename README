@@ -1,6 +1,7 @@
-Fränk is an experimental multiplayer game utilisizing Node.js and Socket.io. It is intended to be deployed locally on a wifi providing server and then played over local wifi connection using mobile devices. However, it is also installable to heroku via usual procedure.
+Fränk is an experimental multiplayer HTML5 game utilisizing Node.js and Socket.io. It is intended to be deployed locally on a wifi providing server and then played over local wifi connection using mobile devices. However, it is also installable to heroku via usual procedure.
 
 This game is MIT licensed, for license please see LICENSE file
 
-
-Jani Turunen, turunen.jani AT gmail.com, 2013
+programming:      Jani Turunen, turunen.jani AT gmail.com
+visual identity:  Kare Nieminen
+concept:          Jani Turunen, Kare Nieminen
